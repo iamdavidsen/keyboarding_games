@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='package',
             name='file',
-            field=models.FileField(default='null', upload_to=games.models.content_file_name),
+            field=models.FileField(default='null', upload_to=games.models.game_file_name),
             preserve_default=False,
         ),
     ]

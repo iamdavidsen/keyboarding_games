@@ -8,10 +8,16 @@ import uuid
 import os
 
 
-def content_file_name(instance, filename):
+def game_file_name(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('games', filename)
+
+
+def image_file_name(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('images', filename)
 
 
 class Category(models.Model):
@@ -30,7 +36,7 @@ class Category(models.Model):
 class Game(models.Model):
     title = models.CharField(max_length=60, blank=False, null=False)
     description = models.TextField(blank=True, null=True)
-    cover_image = models.ImageField(blank=True, null=True)
+    cover_image = models.ImageField(blank=True, null=True, upload_to=image_file_name)
     published = models.BooleanField()
     featured = models.BooleanField()
     slug = models.SlugField()
@@ -56,7 +62,7 @@ class Package(models.Model):
     version = models.CharField(max_length=20, blank=False, null=False)
     published = models.BooleanField()
     game = models.ForeignKey(Game, blank=False, null=False, on_delete=models.CASCADE)
-    file = models.FileField(blank=False, null=False, upload_to=content_file_name)
+    file = models.FileField(blank=False, null=False, upload_to=game_file_name)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -69,3 +75,7 @@ class Package(models.Model):
 
     def __str__(self):
         return self.game.title + " " + self.version
+
+    def get_index(self):
+        dest = os.path.splitext(self.file.path)[0]
+        return dest + "/index.html"
