@@ -1,9 +1,13 @@
+from zipfile import ZipFile
+
 from django.db import models
 from django.urls import reverse
 from taggit.managers import TaggableManager
 import uuid
 
 import os
+
+
 def content_file_name(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
@@ -55,6 +59,13 @@ class Package(models.Model):
     file = models.FileField(blank=False, null=False, upload_to=content_file_name)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        super(Package, self).save(*args, **kwargs)
+
+        with ZipFile(self.file.path, 'r') as zipObj:
+            dest = os.path.splitext(self.file.path)[0]
+            zipObj.extractall(dest)
 
     def __str__(self):
         return self.game.title + " " + self.version
