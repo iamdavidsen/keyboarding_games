@@ -1,0 +1,40 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{% block description %}Ascii Art Tools{% endblock %}"/>
+
+    <meta name="google-site-verification" content="V0yv1uVTzhQy5H1QC3gBYOk50Pm-sOnTKR7cpFpGm0I"/>
+
+    <title>{% block title %}Ascii Art Tools{% endblock %}</title>
+
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+    <link rel="stylesheet" href="{% static "assets/css/styles.min.css" %}"/>
+
+    <script src="{% static "javascript/main.js" %}"></script>
+
+    {% block imports %}
+
+    {% endblock %}
+</head>
+<body class="background">
+<div class="container page-container">
+    {% block content %}
+
+    {% endblock %}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

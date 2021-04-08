@@ -1,0 +1,16 @@
+
+{% extends "partials/_base.html" %}
+
+{% load static %}
+
+{% block title %}
+    image to ascii art
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <h1 class="text-center title">{{ package.game.title }}</h1>
+
+        <iframe src="{{ MEDIA_URL }}{{ package.get_index }}" width="640" height="400"></iframe>
+    </section>
+{% endblock %}

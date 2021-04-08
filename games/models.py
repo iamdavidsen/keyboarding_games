@@ -54,7 +54,7 @@ class Game(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('game_detail', kwargs={'slug': self.slug})
+        return reverse('game', kwargs={'slug': self.slug})
 
 
 class Package(models.Model):
@@ -77,5 +77,5 @@ class Package(models.Model):
         return self.game.title + " " + self.version
 
     def get_index(self):
-        dest = os.path.splitext(self.file.path)[0]
+        dest = os.path.splitext(self.file.name)[0]
         return dest + "/index.html"

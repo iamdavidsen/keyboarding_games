@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'taggit',
 
     'accounts',
+    'pages',
     'games',
     'redirects',
 ]
@@ -68,6 +69,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -133,6 +135,7 @@ STATICFILES_DIRS = (
 
 # Media Files
 MEDIA_ROOT = "media/"
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -141,5 +144,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("text/html", ".html", True)
 mimetypes.add_type("text/javascript", ".js", True)
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
