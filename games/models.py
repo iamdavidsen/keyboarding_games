@@ -2,7 +2,6 @@ from zipfile import ZipFile
 
 from django.db import models
 from django.urls import reverse
-from taggit.managers import TaggableManager
 import uuid
 
 import os
@@ -45,7 +44,7 @@ class Game(models.Model):
     likes = models.IntegerField()
     dislikes = models.IntegerField()
     plays = models.IntegerField()
-    tags = TaggableManager()
+    tags = models.CharField(max_length=160, blank=False, null=False)
     category = models.ForeignKey(Category, blank=False, null=False, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
