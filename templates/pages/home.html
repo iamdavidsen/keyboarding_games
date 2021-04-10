@@ -9,8 +9,7 @@
 
 {% block content %}
     <section class="content">
-        <h1 class="text-center title">Image to ASCII Converter Result</h1>
-    
+
     {% for game in games %}
         <a href="{{ game.get_absolute_url }}">
             <div class="card" style="width: 18rem;">

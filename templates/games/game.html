@@ -2,15 +2,19 @@
 {% extends "partials/_base.html" %}
 
 {% load static %}
+{% load markdown_extras %}
 
 {% block title %}
     image to ascii art
 {% endblock %}
 
 {% block content %}
-    <section class="content">
-        <h1 class="text-center title">{{ package.game.title }}</h1>
-
+    <div class="game">
         <iframe src="{{ MEDIA_URL }}{{ package.get_index }}" width="960" height="600"></iframe>
-    </section>
+
+        <div class="game-content">
+            <h1>{{ package.game.title }}</h1>
+            <p>{{ package.game.description | markdown | safe }}</p>
+        </div>
+    </div>
 {% endblock %}
