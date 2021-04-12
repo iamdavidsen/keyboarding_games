@@ -30,7 +30,7 @@ html, body {
 
 .navbar {
     background-color: #fff;
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 0 0.25rem 0.25rem;
 }
 
 .background {
@@ -38,7 +38,7 @@ html, body {
 }
 
 .footer {
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 0.25rem 0.25rem 0 0;
     background-color: #fff;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -50,8 +50,78 @@ html, body {
     padding: 1rem 0;
 }
 
+
+.game-list-header {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.games-container > a {
+    width: 100%;
+    flex: 1 1 300px;
+}
+
+.featured-container > a:first-child {
+    width: 100%;
+    flex: 1 1 960px;
+}
+
+.featured-container img {
+    border-radius: 0.25rem;
+}
+
+.game-card {
+    position: relative;
+    transition: 0.3s;
+}
+
+.game-card:hover {
+   transform: scale(1.01) rotateZ(0.5deg);
+}
+
+.game-card .card-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 0.25rem;
+    align-items: flex-end;
+}
+
+.game-card:hover .card-overlay {
+    display: flex;
+    background-color: #00000055;
+    color: #fff;
+}
+
+.game-card-title {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.game-card-title h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.game-card-title p {
+    font-weight: 500;
+    margin: 0;
+}
+
 .game {
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     background-color: #fff;
 }
 
@@ -60,5 +130,5 @@ html, body {
 }
 
 iframe {
-    border-radius: 1rem;
+    border-radius: 0.25rem;
 }
