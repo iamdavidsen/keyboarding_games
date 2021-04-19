@@ -68,7 +68,7 @@ html, body {
     flex: 1 1 960px;
 }
 
-.featured-container img {
+.games-container img {
     border-radius: 0.25rem;
 }
 
@@ -111,6 +111,16 @@ html, body {
 .game-card-title p {
     font-weight: 500;
     margin: 0;
+}
+
+.about {
+    border-radius: 0.25rem;
+    background-color: #fff;
+
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .game {
