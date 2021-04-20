@@ -4,9 +4,13 @@
 {% load static %}
 {% load markdown_extras %}
 
-{% block title %}
-    image to ascii art
-{% endblock %}
+{% block title %}{{ package.game.title }} - Free Games | Keyboarding Games{% endblock %}
+{% block description %}{{ package.game.description }}{% endblock %}
+
+{% block og-url %}{{request.build_absolute_uri}}{% endblock %}
+{% block og-tilte %}{{ package.game.title }}{% endblock %}
+{% block og-image %}{{ package.game.cover_image.url }}{% endblock %}
+{% block og-image-alt %}{{ package.game.title }} cover image{% endblock %}
 
 {% block content %}
     <div class="game shadow">
