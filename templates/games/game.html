@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="game shadow">
-        <iframe src="{{ MEDIA_URL }}{{ package.get_index }}" width="960" height="600"></iframe>
+        <iframe id="game-frame" name="GameFrame" src="{{ MEDIA_URL }}{{ package.get_index }}" width="960" height="600"></iframe>
 
         <div class="game-content">
             <h1>{{ package.game.title }}</h1>
@@ -22,3 +22,22 @@
         </div>
     </div>
 {% endblock %}
+
+
+{% block scripts %}
+    <script>
+        window.addEventListener("load", function () {
+            var frame = document.getElementById("game-frame");
+
+            frame.focus();
+
+            frame.addEventListener("focusout", function () {
+                this.focus();
+            })
+
+            var body = frame.contentWindow.document.querySelector("body");
+
+            body.style.overflow = "hidden"
+        })
+    </script>
+{% endblock scripts %}
