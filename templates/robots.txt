@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /media/games/*
 Allow: /
 
 Sitemap: https://keyboarding-games.com/sitemap.xml
