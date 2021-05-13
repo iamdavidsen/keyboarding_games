@@ -9,7 +9,7 @@ class GamesViewSitemap(Sitemap):
     priority = 0.9
 
     def items(self):
-        return Game.objects.all()
+        return Game.objects.filter(published=True).all()
 
     def lastmod(self, game):
         return game.updated_at
